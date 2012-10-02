@@ -1,0 +1,15 @@
+/lib/impact/*
+/lib/weltmeister/*
+
+/deploy/*
+/bld/*
+/bin/*
+
+/lib/weltmeister.html
+
+*.appxmanifest
+*.jsproj
+*.jsproj.user
+*.sln
+*.v11.suo
+*.pfx

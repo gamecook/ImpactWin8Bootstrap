@@ -1,0 +1,55 @@
+﻿body {
+    background-color: black;
+}
+
+@media screen and (-ms-view-state: fullscreen-landscape) {
+}
+
+@media screen and (-ms-view-state: filled) {
+}
+
+@media screen and (-ms-view-state: snapped) {
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+}
+
+#game-container
+{
+    /*width: auto;*/
+    /*margin: auto auto;
+    height: 100%;*/
+    /*border: 1px solid red;*/
+    /*text-align: center;*/
+}
+
+#controls
+{
+    height: 96px;
+    margin-top: -100px;
+    position: relative;
+    overflow: hidden;
+    visibility: hidden;
+}
+#canvas {
+    /*width: 720px;
+    height: 480px;*/
+    /*border: 1px solid red;*/
+}
+
+.button {
+    background-image: url(../images/bootstrap/touch-buttons.png);
+    background-repeat: no-repeat;
+    width: 80px;
+    height: 96px;
+    position: relative;
+    opacity: .2;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-text-size-adjust: none;
+}
+#buttonLeft { float:left; background-position: 0, 0; }
+#buttonRight { float:left; background-position: -80px, 0; }
+#buttonShoot { float:right; background-position: -160px, 0; }
+#buttonJump { float:right; background-position: -240px, 0; }
