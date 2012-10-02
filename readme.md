@@ -1,9 +1,8 @@
-#About Impact Bootstrap
+#About Impact Bootstrap For Windows 8
 
-Impact Bootstrap is a simple collection of scripts, code and stock art/sounds that can help you create HTML5 games faster. The Bootstrap consists of three areas: 
-
-* **scripts** for automation and deploying games to different platforms as well as scripting tasks in Photoshop.  
-* **impact** that contains a collection of plugins, entities and sample code to extend the core impact framework and offer extra functionality in the map editor. Here is a list of important directories that make up the Bootstrap:
+Impact Bootstrap is a simple collection of scripts, code and stock art/sounds that can help you create HTML5 games faster. The Bootstrap consists of the following features: 
+ 
+* **impact additions** that contains a plugins, entities and sample code to extend the core impact framework and offer extra functionality in the map editor. Here is a list of important directories that make up the Bootstrap:
     * **impact/lib/bootstrap** is the  main directory where all the Bootstrap code lives in your impact project.
     * **impact/lib/bootstrap/entities** is where you can find all the entities for the Bootstrap.
     * **impact/lib/bootstrap/platforms** is a collection of modules that will modify your game based on the type of platform it will run on. *(Web is the only finished platform and more are coming soon.)*
@@ -13,40 +12,19 @@ Impact Bootstrap is a simple collection of scripts, code and stock art/sounds th
 * **resources** contains a collection of stock art and sounds to help you prototype out your ideas quickly.
 
 Here is a brief overview of the Impact Bootstrap and how to use it:
+##Getting Started
+Once you check out the bootstrap you can simply drop it into a Visual Studio project include the bootstrap files and add a copy of Impact's source code to the lib's folder so you can run the project.
 
-##Scripts
-There are two scripts folders: build and Photoshop. The **build** directory has an Ant build script along with templates for automating, building and deploying your Impact game. The **Photoshop** folder contains helpful scripts for automating artwork generation, such as sprite sheets in Photoshop. The following scripts are included in the Bootstrap:
+*(More info coming soon)* 
 
-* **build.xml** is located in the build directory and will help automate compiling the game and deploying it to multiple platforms.
-* **LayersToSprite.js** is inside the Photoshop directory and will convert layers in a PSD to a sprite sheet.
+##Impact Bootstrap
+The Impact directory is set up exactly like any default Impact project. Inside, you will find the following directories and files:
 
-###Running The Ant Build
-You will need to have Ant installed on your computer before you can run the script. Once you 
-have Ant installed, you will need to do the following:
+* **lib/bootstrap** contains the core of the Impact Boostratp and the plugins which modify the core of Impact.
 
-1. Copy the `build.template.properties` file and rename it `build.properties`.
-* Replace the contents of the `build.properties` file with your game's name, description and
-additional meta data.
-* Make sure you configure your build paths for each of the platforms you plan on deploying to.
-* From the command line, cd into your project's build directory and call `$ ant`, which will
-run the default build target. 
-* You will know the build works if you don't see any errors and a deploy folder was created in your project's root with builds for each of the platforms the bootstrap build script supports.
+* **lib/game** contains the Bootstrap directory, some demo games, a test level and a sample game file (`main.js` && `config.js`) so you can test out the Bootstrap.
 
-Once you are comfortable running the build script, you can go in and modify the build targets by commenting out platforms you do not need. *(As of now, only Web and Chrome Market platforms are fully supported. Specific build scripts for each of the other platforms are coming soon.)*
-
-###Running The Photoshop Scripts
-In order to run any of the Photoshop scripts:
-
-1. Open up a PSD to run the script on in Photoshop.
-2. From the `File` menu, select `Scripts`. Then, in the drop down, select `Browse…` in order to find the script you want to run from the system finder.
-
-##Impact
-The Impact directory is set up exactly like any default Impact project. Inside, you will find the following directories and files, which you can copy over to your own project:
-
-* **lib/game** contains the Bootstrap directory, some sample entities, a test level and a sample
-game file (`main.js` && `config.js`) so you can test out the Bootstrap.
-* **media/bootstrap** contains directories for all images, sounds and CSS required to run the Bootstrap.
-* **index.html** is a new `index.html` file to replace Impact's default one. This file includes a reference to the new CSS, which is located in the `media/bootstrap` directory, as well as placeholder artwork for touch controls.
+* **default.html** is a modified`default.html` file to replace Impact's index.html file. This file includes a reference to WinJS, a modified CSS, which is located in the `css` directory, as well as placeholder artwork for touch controls.
 
 Most of the core code that makes up the Impact Bootstrap lives in the `lib/bootstrap' 
 directory. Let's take a quick look at how the Bootstrap's plugins and entities work:
@@ -61,29 +39,20 @@ to your main game module's requires block.
 * **camera.js** is a simple camera class that follows an entity and allows you to set a region around the player to trigger scrolling. It also handles basic lighting effects via a PNG overlay.
 * **caption.js** is a plugin that patches the main game class and allows you to display a text message at the bottom of the screen that disappears after a set number of seconds. This is ideal for showing instructions at the beginning of a level or displaying status messages during the game.
 * **menu.js** adds the ability to overlay a 'screen' on top of the game. This is useful for pause menus or displaying stats at the end of a level or a game-over screen. There is a default menu that lets you display text. Simply extend this and override the `draw()` method with your own graphics.
-* **pause.js** adds support to pause all entities in the game on the screen by calling
-`togglePause()` on the `ig.game` class. This will not update any entities when paused, but they will continue to draw.
-* **tracking.js** is a wrapper for Google Analytics to do tracking in your game. This plugin 
-automatically adds Google tracking code to your game. All you need to do is supply your tracking account number. You can also use the Ant build to automatically replace a `@tracking@` token in your game code if you don't want to hardcode it. Simply supply your account information in the `project.tracking` property of the `build.properties` file and pass the token, as a string, into the instance of the tracking class:
-
-        this.tracking = new Tracking(@tracking@);
-
-* **utils.js** adds some basic utilities to your game, such as padding strings with zeros for 
-high scores and the ability to load a level by its file name via a newly injected `loadLevelByFileName()` method on the `ig.game` class.
+* **pause.js** adds support to pause all entities in the game on the screen by calling `togglePause()` on the `ig.game` class. This will not update any entities when paused, but they will continue to draw.
+* **tracking.js** is a wrapper for Google Analytics to do tracking in your game. This plugin automatically adds Google tracking code to your game. All you need to do is supply your tracking account number. 
+* **utils.js** adds some basic utilities to your game, such as padding strings with zeros for high scores and the ability to load a level by its file name via a newly injected `loadLevelByFileName()` method on the `ig.game` class.
 
 ---
 More plugins are planned. Here are a few coming soon:
 
 * **mini-map.js** will add a mini map to your game.
-* **random-map.js** will allow you to generate random maps on the fly similar to the 
-Weltmeister random map generation plugin.
+* **random-map.js** will allow you to generate random maps on the fly similar to the Weltmeister random map generation plugin.
 * **utils.js** will have more utilities added to it, such as an experience/level calculator and more.
 
 ###Weltmeister Plugins
 To import the entire collection of Weltmeister-specific plugins, simply add `'bootstrap.weltmeister-bootstrap'` to the `weltmeister/weltmeister.js` module's requires block. Here is a list of the plugins currently in the bootstrap.
-
 * **random-map.js** adds the ability to generate random map generation via a new button in the level editor. *(A full panel to configure the random map generation settings is coming soon!)*
-
 If you would like to use the bootstrap's entities, you will need to configure your `weltmeister/config.js`. Simply replace:
 
     'entityFiles': 'lib/game/entities/*.js',
@@ -172,58 +141,6 @@ Impact Bootstrap comes with a set of pre-generated sound effects, which you can 
 * ShotgunFire.wav
 * StartGame.wav
 
-##Change Log
-**v0.5.0-alpha**
-
-**This is a major update due to the new build script and moving the demo games out of the bootstrap **
-
-* Rebuilt the build script to automate deployment on multiple platforms. Right now it fully supports web, chrome market and Win8.
-* Moved demo games out of `bootstrap/demos` and into the game folder.
-* You can now automatically generate a game via the ant build. Simply replace the name of the game in the properties file. *( I'll be adding documentation on this very soon. )*
-* `level-exit.js` in ResidentRaver game has been renamed to `level-select.js` to avoid confusion with bootstrap entity of the same name.
-*  Cleaned up base-door to now use built in input callbacks instead of hardcoded call for ig.input.pressed('open'). Now you can auto-bind the open key to trigger a door.
-*  Modified the loop that looks for input binding to now take a set of filters to allow you to limit the player's movement. This is being used in the doors to only allow the input to be open and dissable everything else. *( This still needs more working and testing but is a good start. )*
-*  Replaced old padding prototype method `padString` to `pad`.
-*  Fixed more bugs in Resident Raver and refactored the door to work better.
-
-**v0.4.0-alpha**
-
-**This is a major update due to the number of classes that have been refactored **
-
-* Added Resident Raver demo game to bootstrap.
-* Refactored door, elevator, item, platform & weapon into base entities. You now need to extend these directly to use them. Look at the Resident Raver demo code for working examples of each.
-* Due to refactoring entities into base entities removed most of the non-generic images form the bootstrap media/images directory.
-* Added new mini-map class *(still needs work to allow it to be more flexible)*.
-* Added 3rd part plugins into the project folder. Resident Raver depends on a few of these plugins. They have been modified slightly to sit inside of their own directory and include license and readme files.
-* Noticed a bug in the bootstrap that breaks support for iOS and possibly Android. Will address in next release.
-
-**v0.3.0-alpha**
-
-* Updated `level-exit.js` to now inject and call a new `exitLevel()` method on the `ig.game` class.
-* Added more features to the Jetroid demo such as a stats screen to show during pause or when exiting a level, a new demo level, and added a way to exit a level to show off the new `exitlevel.js` class and monsters.
-* Added new `win8.js` plugin inside of the platform folder which adds support for deploying your game to Windows 8 as an HTML5 Metro app.
-* Fixed css for the buttons on the `index.html` to float instead of being hardcoded to a specific size.
-* Adding more artwork for Jetroid to the resources directory.
-* Added prototype to Math class to support randomRange(min, max)
-* Starting to move new utility classes into `ig.utils` namespace instead of prototyping main classes in JS. First one is `ig.utils.randomRange(min, max)` which allows you to get a random number between a set range. *(I will be converting other string utils to this format as well moving forward)*
-* Cleaned up animation issue in base actor, player and monster that would throw an error if no animation was set in the constructor. 
-* Fixed player to change alpha based on invincibility flag.
-* Modified base-monster to now turn around when colliding with the player.
-* Refactored `shakeScreen()` method injected into `ig.game` class to now accept duration and strength. Now the camera class's `shake()` method automatically defaults to duration of 1 and strength of 3 if none are supplied. 
-* Created `particle-emitter.js` class in the bootstrap.
-
-**v0.2.0-alpha**
-
-* Refactored Bootstrap to sit inside of `impact/lib` instead of `impact/lib/game`
-* Updated to support lasts versions of Impact (v1.2.0).
-* Removed plugins that are no longer needed (raf.js, entities.js). 
-* Added demo folder with new game Jetroid to help show off how the bootstrap works.
-* Cleaned up `main.js` to now load Jetroid by default similar to how a plugin works, which will allow users to eventually easily swap out each demo game.
-* Added `.capitalize()` method to string in the `util.js` plugin.
-* Added Jetroid artwork to the resources directory for use with the demo game. *(PNGs require Fireworks to see animation frames properly)*
-* Added base-item entity to the bootstrap which sets the foundation of equipment and power ups. Examples of how to use this class are part of the Jetroid demo.
-* Moved "core entities" into main bootstrap entity folder now that Impact v1.2.0 add support for ignoring entities in weltmeister.
-
 ##Demos
 Impact Bootstrap comes with some demo games in order to show off how you can build your own games off of the bootstrap. I'll be filling in more details here as I build out each of the demo games.
 
@@ -259,7 +176,9 @@ I plan on porting over other entities from my games such as:
 
 ###Documentation On Platform Plugins
 I plan on finishing up the platform-specific plugins and documenting how to use them.
-
-
 ###Demo Site
 I'll be building a site to showcase each of the plugins along with example code on how to use them.
+
+##Change Log
+**v0.1.0-alpha**
+Initial Import from my original Impact Bootstrap with a modified version of Super Resident Raver and Win8 specific additions such as resizing, touch controls and stripping out platform plugins not needed on Win8.
